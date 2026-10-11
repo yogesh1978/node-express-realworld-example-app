@@ -45,7 +45,10 @@ const buildFindAllQuery = (query: any, id: number | undefined) => {
     queries.push({
       tagList: {
         some: {
-          name: query.tag,
+          name: {
+            equals: query.tag,
+            mode: 'insensitive',
+          },
         },
       },
     });
